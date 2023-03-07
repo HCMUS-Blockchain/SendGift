@@ -10,13 +10,15 @@ function useQuery() {
 }
 const Gift = () => {
     const query = useQuery();
-    const puzzleId = useState(query.get("id"))[0];
-    const userId = useState(query.get("userId"))[0];
-    const name = useState(query.get("name"))[0];
+    const userID = useState(query.get("userID"))[0];
+    const puzzleID = useState(query.get("puzzleID"))[0];
+    const pieceID = useState(query.get("pieceID"))[0];
     const piece = useState(query.get("piece"))[0];
-    let url= "exp://10.123.0.213:19000/--/path/into/app"
-    if (puzzleId && userId && name && piece) {
-        url = url + "?id=" + puzzleId + "&&userId=" + userId + "&&name=" + name + "&&piece=" + piece
+    const image = useState(query.get("image"))[0];
+    let url= "exp://192.168.1.106:19000/--/path/into/app"
+    if (userID && puzzleID && pieceID && piece && image) {
+        url = url + "?userID=" + userID + "&&puzzleID=" + puzzleID + "&&pieceID=" + pieceID + "&&piece=" + piece
+            + "&&image=" + image
     }
     return (
         <div
